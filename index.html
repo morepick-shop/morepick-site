@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f7f8f6"><meta name="description" content="모어픽 - 일상에 필요한 좋은 발견. 상품번호와 상품명으로 찾아보세요.">
+<title>MOREPICK | 일상에 필요한 좋은 발견</title>
+<style>
+:root{--bg:#f7f8f6;--ink:#17241d;--muted:#718078;--line:#e5eae5;--green:#245b42;--soft:#e9f1eb}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif}button,input{font:inherit}
+header{background:#fff;border-bottom:1px solid var(--line)}.top{max-width:1100px;margin:auto;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-size:23px;font-weight:900;letter-spacing:-1.2px}.logo b{color:var(--green)}.top a{color:var(--ink);text-decoration:none;font-size:13px;border:1px solid var(--line);border-radius:999px;padding:10px 14px}
+main{max-width:1100px;margin:auto;padding:30px 24px 70px}.hero{background:linear-gradient(125deg,#e2eee6,#f4f7f1);padding:45px 38px;border-radius:26px}.eyebrow{color:var(--green);font-size:12px;font-weight:800;letter-spacing:2px}.hero h1{font-size:clamp(29px,5vw,48px);letter-spacing:-2px;line-height:1.22;margin:12px 0}.hero p{color:#5c6e61;margin:0;line-height:1.7}
+.searchbox{background:#fff;border:1px solid var(--line);border-radius:18px;display:flex;align-items:center;padding:0 18px;margin:28px 0 20px;box-shadow:0 5px 25px #17241d07}.searchbox svg{flex:none}.searchbox input{border:0;outline:0;width:100%;padding:20px 14px;background:transparent;color:var(--ink)}.searchbox input::placeholder{color:#9ba7a0}
+.filters{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0 30px}.filter{border:1px solid var(--line);background:#fff;color:#516056;border-radius:999px;padding:10px 17px;cursor:pointer}.filter.active{background:var(--green);border-color:var(--green);color:#fff}
+.sectionhead{display:flex;align-items:center;justify-content:space-between;margin:30px 0 16px;gap:12px}.sectionhead h2{font-size:22px;letter-spacing:-.7px;margin:0}.count{font-size:13px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.item{background:white;border:1px solid var(--line);border-radius:18px;overflow:hidden}.photo{width:100%;aspect-ratio:1;background:#edf2ed;display:flex;align-items:center;justify-content:center}.photo img{width:100%;height:100%;object-fit:cover}.photo span{font-size:46px}.details{padding:16px}.number{font-size:12px;color:var(--green);font-weight:800}.name{font-weight:750;margin:7px 0 5px;line-height:1.45}.category{font-size:12px;color:var(--muted)}.price{font-size:17px;font-weight:850;margin:12px 0}.buy{display:block;background:var(--green);color:#fff;text-align:center;text-decoration:none;padding:11px;border-radius:10px;font-size:13px;font-weight:750}.empty{text-align:center;background:#fff;border:1px dashed #d4dfd6;border-radius:22px;padding:66px 20px;color:var(--muted)}.empty .emoji{font-size:46px;margin-bottom:12px}.empty strong{display:block;color:var(--ink);font-size:19px;margin-bottom:9px}.empty p{margin:0;line-height:1.6}
+footer{border-top:1px solid var(--line);padding:30px 24px;text-align:center;color:var(--muted);font-size:12px;line-height:1.9}footer a{color:var(--green)}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.hero{padding:34px 24px}.top{padding:18px}.top a{font-size:12px}main{padding:22px 16px 55px}.details{padding:12px}.price{font-size:15px}}
+</style>
+</head>
+<body>
+<header><div class="top"><div class="logo">MORE<b>PICK</b><span aria-hidden="true"> ✳</span></div><a id="storeLink" href="#" target="_blank" rel="noopener noreferrer" hidden>스마트스토어 바로가기 ↗</a></div></header>
+<main>
+<section class="hero"><div class="eyebrow">CURATED FOR EVERYDAY</div><h1>일상에 필요한<br>좋은 발견, 모어픽.</h1><p>작지만 확실한 편리함을 모았어요.<br>상품번호나 이름으로 원하는 제품을 찾아보세요.</p></section>
+<label class="searchbox" for="search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#748478" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg><input id="search" type="search" placeholder="상품번호 또는 상품명 검색 (예: 001)" autocomplete="off" aria-label="상품 검색"></label>
+<nav class="filters" id="filters" aria-label="상품 카테고리"></nav>
+<div class="sectionhead"><h2>추천 상품</h2><span id="count" class="count"></span></div>
+<div id="results" aria-live="polite"></div>
+</main>
+<footer><strong>MOREPICK · 모어픽</strong><div>상품 결제 및 배송은 연결된 네이버 스마트스토어에서 진행됩니다.</div><div>상품 정보와 가격은 스마트스토어 상세페이지를 확인해 주세요.</div></footer>
+<script src="./products.js"></script>
+<script>
+(function(){
+"use strict";
+const data=window.MOREPICK_DATA||{storeUrl:"",products:[]};
+const categories=["전체","자취템","주방템","생활템","인테리어","뷰티","패션","디지털","기타"];
+const items=Array.isArray(data.products)?data.products.filter(p=>p&&p.name&&p.url):[];
+const search=document.getElementById("search"),filters=document.getElementById("filters"),results=document.getElementById("results"),count=document.getElementById("count");
+const store=document.getElementById("storeLink");
+function safeUrl(url){try{const u=new URL(url);return ["https:","http:"].includes(u.protocol)?u.href:null}catch{return null}}
+if(safeUrl(data.storeUrl)){store.href=safeUrl(data.storeUrl);store.hidden=false}
+let selected="전체";
+function node(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text!==undefined)e.textContent=text;return e}
+function renderFilters(){filters.replaceChildren();categories.forEach(c=>{const b=node("button","filter"+(c===selected?" active":""),c);b.type="button";b.setAttribute("aria-pressed",String(c===selected));b.onclick=()=>{selected=c;renderFilters();render()};filters.append(b)})}
+function render(){const q=search.value.trim().toLocaleLowerCase();const found=items.filter(p=>(selected==="전체"||p.category===selected)&&[p.id,p.name,p.category].some(v=>String(v||"").toLocaleLowerCase().includes(q)));
+count.textContent=found.length+"개 상품";results.replaceChildren();
+if(!found.length){const box=node("div","empty");box.append(node("div","emoji",q?"🔎":"🛍️"),node("strong","",q?"검색 결과가 없어요":items.length?"이 카테고리는 준비 중이에요":"상품을 준비하고 있어요"),node("p","",q?"다른 상품번호나 이름으로 검색해 보세요.":"곧 유용한 상품들을 소개할게요!"));results.append(box);return}
+const grid=node("div","grid");found.forEach(p=>{const card=node("article","item"),photo=node("div","photo");
+if(safeUrl(p.image)){const img=node("img");img.src=safeUrl(p.image);img.alt=p.name;img.loading="lazy";photo.append(img)}else photo.append(node("span","", "🛍️"));
+const d=node("div","details");d.append(node("div","number","#"+String(p.id||"").padStart(3,"0")),node("div","name",p.name),node("div","category",p.category||"기타"));
+if(p.price!==undefined&&p.price!==null&&p.price!=="")d.append(node("div","price",Number(p.price).toLocaleString("ko-KR")+"원"));
+const a=node("a","buy","스마트스토어에서 보기 ↗");a.href=safeUrl(p.url)||"#";a.target="_blank";a.rel="noopener noreferrer sponsored";d.append(a);card.append(photo,d);grid.append(card)});results.append(grid)}
+search.addEventListener("input",render);renderFilters();render();
+})();
+</script>
+</body></html>
