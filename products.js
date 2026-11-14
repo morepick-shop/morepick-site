@@ -18,6 +18,15 @@ window.MOREPICK_DATA = {
       "image": "https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/vendor_inventory/acab/97deb75b8b2002fd3a66415d75295b1eb9622e33dad4a1bc66454fef3679.jpg",
       "url": "https://link.coupang.com/a/iFlaedgOse",
       "sourceUrl": "https://www.instagram.com/reel/CjVXDMEKIgL/"
+    },
+    {
+      "id": "003",
+      "name": "조셉조셉 찹컵 야채 다지기 화이트·그린 1개",
+      "category": "주방템",
+      "description": "눌러 자른 채소가 컵 안에 모이는 찹컵 야채 다지기. 재료의 크기·단단함에 따른 사용 방법과 칼날 세척 주의사항은 쿠팡 상세에서 확인해 주세요.",
+      "image": "https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/vendor_inventory/image_audit/stage/manual/52855e4d-b731-4457-919e-513185512c65_1788228383137.jpeg",
+      "url": "https://link.coupang.com/a/iFAD6LH01s",
+      "sourceUrl": "https://www.instagram.com/reel/DOqFEIdAKje/"
     }
   ]
 };
