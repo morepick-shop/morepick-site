@@ -17,7 +17,7 @@ window.MOREPICK_DATA = {
       "description": "테이프 리필 없이 앞뒤로 움직여 소파·침구의 털을 수거통에 모으는 오리지널 롤러. 해외배송 상품으로 배송예정일·구성·사용 가능한 소재는 쿠팡 상세에서 확인해 주세요.",
       "image": "https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/vendor_inventory/acab/97deb75b8b2002fd3a66415d75295b1eb9622e33dad4a1bc66454fef3679.jpg",
       "url": "https://link.coupang.com/a/iFlaedgOse",
-      "sourceUrl": "https://www.instagram.com/reel/CWJFjpfJ3Re/"
+      "sourceUrl": "https://www.instagram.com/reel/CjVXDMEKIgL/"
     }
   ]
 };
