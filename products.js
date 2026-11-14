@@ -1,9 +1,14 @@
-// 여기에 상품을 추가하세요. 쉼표와 따옴표를 유지해 주세요.
 window.MOREPICK_DATA = {
-  storeUrl: "", // 예: "https://smartstore.naver.com/내스토어주소"
-  products: [
-    // 등록 예시 (앞의 //를 제거하고 실제 상품 정보로 변경):
-    // { id: "001", name: "접이식 수납함", category: "자취템", price: 12900, image: "https://이미지주소.jpg", url: "https://smartstore.naver.com/스토어/products/상품번호" },
-    // { id: "002", name: "실리콘 조리도구", category: "주방템", price: 8900, image: "", url: "https://smartstore.naver.com/스토어/products/상품번호" }
+  "storeUrl": "",
+  "products": [
+    {
+      "id": "001",
+      "name": "스크럽대디 오리지널 옐로우 수세미 1개",
+      "category": "주방템",
+      "description": "노란 스마일 모양의 오리지널 수세미. 구성·배송비·사용 가능한 표면은 쿠팡 상품 상세에서 확인해 주세요.",
+      "image": "https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/vendor_inventory/f2af/5ac0e517e84031c4be28b3eedb79b96b4ff0b6bceb17f2376da49b88f0d7.jpg",
+      "url": "https://link.coupang.com/a/iE2hZA57ue",
+      "sourceUrl": "https://www.instagram.com/reel/Deet08Lupc7/"
+    }
   ]
 };
