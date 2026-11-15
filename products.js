@@ -36,6 +36,15 @@ window.MOREPICK_DATA = {
       "image": "https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/vendor_inventory/0c44/060d6056b3964e2ab76fe60bf5fdc427fe6ce243a6c24cebe21f5343dd1a.png",
       "url": "https://link.coupang.com/a/iFC2TCC4wm",
       "sourceUrl": "https://www.instagram.com/reel/DZK318BtJIA/"
+    },
+    {
+      "id": "005",
+      "name": "운동화 전용 극세사 세탁망 옐로우 1개",
+      "category": "생활템",
+      "description": "운동화를 넣어 사용하는 전용 극세사 세탁망. 안내 옵션은 옐로우 1개이며 영상의 2개 구성과 다릅니다. 대표사진은 그레이 예시입니다. 신발·세탁기의 세탁 가능 여부를 확인하고, 구매 전 판매자명 모어픽과 옵션을 확인해 주세요.",
+      "image": "https://image.coupangcdn.com/image/vendor_inventory/9e5d/6aacd1cf852526c78ac3a0417516e1ade5b3418d0296ec56a8eae66c4595.png",
+      "url": "https://link.coupang.com/a/iGB7cDxVDM",
+      "sourceUrl": "https://www.instagram.com/reel/DbSvRpnR2kH/"
     }
   ]
 };
