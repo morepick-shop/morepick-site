@@ -45,6 +45,15 @@ window.MOREPICK_DATA = {
       "image": "https://image.coupangcdn.com/image/vendor_inventory/9e5d/6aacd1cf852526c78ac3a0417516e1ade5b3418d0296ec56a8eae66c4595.png",
       "url": "https://link.coupang.com/a/iGB7cDxVDM",
       "sourceUrl": "https://www.instagram.com/reel/DbSvRpnR2kH/"
+    },
+    {
+      "id": "006",
+      "name": "크로스 가방형 접이식 캠핑 의자 베이지 1개",
+      "category": "생활템",
+      "description": "접으면 크로스 가방 형태로 휴대하는 메쉬 수납 포켓 의자. 안내 옵션은 베이지 1개이며 영상 속 다른 원형 의자는 포함되지 않습니다. 평평한 바닥에서 완전히 펼쳐 사용하고, 구매 전 판매자명 모어픽과 선택 옵션을 확인해 주세요.",
+      "image": "https://cdn1.domeggook.com/upload/item/2026/05/22/177943355081BAE3B933D0B59F74B7CF/177943355081BAE3B933D0B59F74B7CF_img_760?hash=5c0227e0f011df149466658a0c6554a4",
+      "url": "https://link.coupang.com/a/iIGAjHmIIS",
+      "sourceUrl": "https://www.instagram.com/smartfindsss/reel/DbBInggMKff/"
     }
   ]
 };
