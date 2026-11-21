@@ -32,10 +32,14 @@ window.MOREPICK_DATA = {
       "id": "004",
       "name": "모어픽 씻어쓰는 휴대용 미니 돌돌이 그린 1개",
       "category": "생활템",
-      "description": "모어픽이 직접 판매하는 휴대용 먼지 제거 롤러입니다. 안내 옵션은 그린 1개이며 원본 영상의 2개 구성과 다릅니다. 세척 후 충분히 말려 사용하고, 구매 전 판매자명 모어픽과 선택 옵션을 확인해 주세요.",
+      "description": "그린 1개 구성의 휴대용 먼지 제거 롤러입니다. 물로 씻은 뒤 충분히 말려 사용해 주세요. 영상 속 다른 색상·수량이나 소품은 포함되지 않으며, 구매 전 판매자명 모어픽과 선택 옵션을 확인해 주세요.",
       "image": "https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/vendor_inventory/0c44/060d6056b3964e2ab76fe60bf5fdc427fe6ce243a6c24cebe21f5343dd1a.png",
       "url": "https://link.coupang.com/a/iFC2TCC4wm",
-      "sourceUrl": "https://www.instagram.com/reel/DZK318BtJIA/"
+      "sourceUrl": "https://www.instagram.com/reel/DZK318BtJIA/",
+      "sourceUrls": [
+        "https://www.instagram.com/reel/DZK318BtJIA/",
+        "https://www.instagram.com/anniefernnn/reel/DI2LEV9NJD5/"
+      ]
     },
     {
       "id": "005",
