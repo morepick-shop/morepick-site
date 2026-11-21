@@ -58,15 +58,6 @@ window.MOREPICK_DATA = {
       "image": "https://cdn1.domeggook.com/upload/item/2026/05/22/177943355081BAE3B933D0B59F74B7CF/177943355081BAE3B933D0B59F74B7CF_img_760?hash=5c0227e0f011df149466658a0c6554a4",
       "url": "https://link.coupang.com/a/iIGAjHmIIS",
       "sourceUrl": "https://www.instagram.com/smartfindsss/reel/DbBInggMKff/"
-    },
-    {
-      "id": "007",
-      "name": "OTOTO 스플래티퍼스 오리너구리 스패출러",
-      "category": "주방템",
-      "description": "청록색 몸체와 노란 부리의 오리너구리 모양 스패출러. 잼·스프레드를 덜고 펴 바르는 용도이며 영상 속 다른 주방용품은 포함되지 않습니다. 구성·배송예정일·사용법은 쿠팡 상세에서 확인해 주세요.",
-      "image": "https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/vendor_inventory/4956/5edda3aec5e20e042e86644c44c66be94c3fde2d9d7f73a506a143dfb5e6.jpg",
-      "url": "https://link.coupang.com/a/iREzmWPhM4",
-      "sourceUrl": "https://www.instagram.com/reel/CnzkqjHvrjQ/"
     }
   ]
 };
