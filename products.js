@@ -58,6 +58,15 @@ window.MOREPICK_DATA = {
       "image": "https://cdn1.domeggook.com/upload/item/2026/05/22/177943355081BAE3B933D0B59F74B7CF/177943355081BAE3B933D0B59F74B7CF_img_760?hash=5c0227e0f011df149466658a0c6554a4",
       "url": "https://link.coupang.com/a/iIGAjHmIIS",
       "sourceUrl": "https://www.instagram.com/smartfindsss/reel/DbBInggMKff/"
+    },
+    {
+      "id": "008",
+      "name": "조셉조셉 로커 마늘다지개 그린 1개",
+      "category": "주방템",
+      "description": "그린 손잡이와 스테인리스 타공판의 로커형 마늘다지개. 도마 위 마늘을 누르며 좌우로 움직여 으깨는 수동 도구입니다. 구성·세척법·주의사항은 쿠팡 상세에서 확인해 주세요.",
+      "image": "https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/product/image/vendoritem/2018/07/31/3000157407/84062ed0-db79-4e36-9577-f6df78ac8b15.jpg",
+      "url": "https://link.coupang.com/a/iRFrSe6oDs",
+      "sourceUrl": "https://www.instagram.com/reel/Dbdjed3k9IK/"
     }
   ]
 };
