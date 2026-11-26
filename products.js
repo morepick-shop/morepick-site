@@ -1,5 +1,5 @@
 window.MOREPICK_DATA = {
-  "storeUrl": "",
+  "storeUrl": "https://smartstore.naver.com/more-pick",
   "products": [
     {
       "id": "001",
@@ -74,7 +74,8 @@ window.MOREPICK_DATA = {
       "category": "자취템",
       "description": "가구 아래를 지렛대로 조금 들어 올린 뒤 롤러 받침대를 넣어 평탄한 바닥에서 짧은 거리 이동을 돕는 키트입니다. 배송 구성은 지지대 1개 + 롤러 받침대 4개이고 지렛대 길이는 약 35cm입니다. 경사·문턱·고르지 않은 바닥에는 사용하지 말고, 무겁거나 높은 가구는 성인 두 명 이상이 균형을 잡고 옮겨 주세요. 구매 전 판매자명 모어픽과 선택 옵션을 확인해 주세요.",
       "image": "https://thumbnail.coupangcdn.com/thumbnails/remote/640x640ex/image/vendor_inventory/e8e1/06379c60139514b4ed5b4f42d52d02e6a32ba8559155ffe913834a4eb04d.png",
-      "url": "https://link.coupang.com/a/iYmzRP3lq8"
+      "url": "https://link.coupang.com/a/iYmzRP3lq8",
+      "sourceUrl": "https://www.instagram.com/p/DgLEM1IyVEy/"
     }
   ]
 };
