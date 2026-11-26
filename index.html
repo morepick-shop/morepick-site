@@ -29,7 +29,7 @@ footer{border-top:1px solid var(--line);padding:30px 24px;text-align:center;colo
 <div id="results" aria-live="polite"></div>
 </main>
 <footer><strong>MOREPICK · 모어픽</strong><div>상품 구매·결제·배송은 연결된 판매처에서 진행됩니다.</div><div>가격·배송비·구성·재고는 구매 시 판매처 상세페이지에서 확인해 주세요.</div></footer>
-<script src="./products.js?v=20261126-links"></script>
+<script src="./products.js?v=20261126-smartstore"></script>
 <script>
 (function(){
 "use strict";
@@ -51,7 +51,7 @@ if(safeUrl(p.image)){const img=node("img");img.src=safeUrl(p.image);img.alt=p.na
 const d=node("div","details");d.append(node("div","number","#"+String(p.id||"").padStart(3,"0")),node("div","name",p.name),node("div","category",p.category||"기타"));
 if(p.description)d.append(node("p","description",p.description));
 if(p.price!==undefined&&p.price!==null&&p.price!=="")d.append(node("div","price",Number(p.price).toLocaleString("ko-KR")+"원"));
-const a=node("a","buy",/coupang\.com/i.test(p.url)?"쿠팡에서 제품 보기 ↗":"제품 보기 ↗");a.href=safeUrl(p.url)||"#";a.target="_blank";a.rel="noopener noreferrer sponsored";d.append(a);card.append(photo,d);grid.append(card)});results.append(grid)}
+const a=node("a","buy",/coupang\.com/i.test(p.url)?"쿠팡에서 제품 보기 ↗":/smartstore\.naver\.com/i.test(p.url)?"스마트스토어에서 보기 ↗":"제품 보기 ↗");a.href=safeUrl(p.url)||"#";a.target="_blank";a.rel=/coupang\.com/i.test(p.url)?"noopener noreferrer sponsored":"noopener noreferrer";d.append(a);card.append(photo,d);grid.append(card)});results.append(grid)}
 search.addEventListener("input",render);renderFilters();render();
 })();
 </script>

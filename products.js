@@ -83,7 +83,7 @@ window.MOREPICK_DATA = {
       "category": "주방템",
       "description": "프라이팬과 냄비를 세워서 한 칸에 하나씩 보관하는 5단 정리대입니다. 크기는 25×25×48cm, 스테인리스 재질이고 물이 묻어도 잘 부식되지 않습니다. 설치 전에 하부장 문 높이(48cm)를 한 번 재보시고, 뚜껑은 따로 세워 보관해야 합니다. 구매 전 판매자명 모어픽과 선택 옵션을 확인해 주세요.",
       "image": "https://cdn1.domeggook.com/upload/item/2026/10/17/17922321819C26AD8B3A5F1EC2B95A2A/17922321819C26AD8B3A5F1EC2B95A2A_img_760?hash=0f176600752ffc2a17d719fd5526d976",
-      "url": "https://www.coupang.com/vp/products/9845011508",
+      "url": "https://smartstore.naver.com/more-pick/products/13873527432",
       "sourceUrl": "https://www.instagram.com/p/DgNNn4SSzUA/"
     }
   ]
