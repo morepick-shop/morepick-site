@@ -1,342 +1,418 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f0eade">
-<meta name="description" content="데일리템픽 — 생활이 편해지는 신박한 꿀템 모음. 번호나 상품명으로 바로 찾아보세요.">
-<title>데일리템픽 | 생활꿀템·살림템</title>
-<link rel="icon" href="./avatar.png">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fceff1">
+<meta name="description" content="데일리템픽 - 살림·생활 꿀템 모음. 상품번호나 키워드로 찾아보세요.">
+<title>데일리템픽 | 살림·생활 꿀템 모음</title>
 <style>
 :root{
-  --bg:#f0eade;
+  --bg:#fceff1;
+  --bg2:#fdf3f4;
+  --bar1:#d3a7ae;
+  --bar2:#c79ea4;
+  --ink:#33262a;
+  --ink2:#5f4d52;
+  --muted:#94797e;
+  --line:#d8c6c9;
   --card:#ffffff;
-  --ink:#332c25;
-  --ink-soft:#4a423a;
-  --muted:#a19787;
-  --placeholder:#a9a196;
-  --chevron:#c0b7a9;
-  --round:rgba(120,105,85,.10);
+  --shadow:0 3px 12px rgba(150,100,110,.07);
 }
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;padding:0}
+*{box-sizing:border-box}
+html,body{margin:0}
 body{
-  background:var(--bg);
+  background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 38%,#fbf0f2 100%);
+  background-attachment:fixed;
   color:var(--ink);
-  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;
+  font-family:"Apple SD Gothic Neo","Noto Sans CJK KR","Noto Sans KR","Malgun Gothic",
+              "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",system-ui,-apple-system,sans-serif;
   -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
+  -webkit-tap-highlight-color:transparent;
+  min-height:100vh;
 }
-button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
-img{display:block}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+a{color:inherit}
 
-/* 상단 고지 바 */
+/* ── 최상단 쿠팡 파트너스 마퀴 바 ── */
 .notice{
-  position:relative;overflow:hidden;
-  height:32px;display:flex;align-items:center;
-  background:rgba(255,255,255,.42);
-  border-bottom:1px solid rgba(120,105,85,.07);
+  position:sticky;top:0;z-index:40;
+  overflow:hidden;
+  background:linear-gradient(90deg,var(--bar2),var(--bar1) 55%,var(--bar2));
+  color:#3d2a2e;
+  height:40px;
+  display:flex;align-items:center;
 }
-.notice-track{
-  white-space:nowrap;font-size:11.5px;letter-spacing:-.2px;color:#6c6355;font-weight:500;
-  padding-left:16px;
+.notice__track{
+  display:flex;flex:0 0 auto;width:max-content;
+  animation:notice-scroll 26s linear infinite;
+  will-change:transform;
 }
-.notice.scroll .notice-track{
-  padding-left:0;
-  animation:marquee 18s linear infinite;
+.notice__item{
+  display:block;white-space:nowrap;
+  font-size:12.5px;font-weight:600;letter-spacing:-.2px;
+  padding:0 26px;
 }
-@keyframes marquee{from{transform:translateX(100%)}to{transform:translateX(-100%)}}
-@media (prefers-reduced-motion:reduce){.notice.scroll .notice-track{animation:none;transform:none;padding-left:16px}}
+@keyframes notice-scroll{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-50%,0,0)}
+}
+@media (hover:hover){
+  .notice:hover .notice__track{animation-play-state:paused}
+}
+@media (prefers-reduced-motion:reduce){
+  .notice__track{animation:none}
+}
 
-.wrap{max-width:480px;margin:0 auto;padding:0 16px calc(38px + env(safe-area-inset-bottom))}
+.wrap{max-width:480px;margin:0 auto;padding:0 16px 60px;position:relative}
 
-/* 상단 좌/우 원형 아이콘 */
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 2px 0}
-.round{
-  width:42px;height:42px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  background:var(--round);color:#4c4437;
-  transition:background .15s ease, transform .1s ease;
+/* ── 상단 좌/우 원형 아이콘 ── */
+.topicons{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 2px 0;
 }
-.round:active{transform:scale(.94);background:rgba(120,105,85,.17)}
-.round svg{width:21px;height:21px;display:block}
+.iconbtn{
+  width:40px;height:40px;border-radius:50%;
+  background:rgba(231,220,222,.72);
+  color:#5b464b;
+  display:grid;place-items:center;
+  transition:background .15s ease,transform .15s ease;
+}
+.iconbtn:hover{background:rgba(231,220,222,.95)}
+.iconbtn:active{transform:scale(.94)}
+.iconbtn svg{display:block}
 
-/* 프로필 */
-.profile{text-align:center;padding-top:26px}
+.profile{
+  display:flex;flex-direction:column;align-items:center;
+  margin-top:18px;
+}
 .avatar{
-  width:100px;height:100px;border-radius:50%;object-fit:cover;
-  margin:0 auto;background:#e8e0d2;
+  width:102px;height:102px;border-radius:50%;
+  background:#fff;padding:6px;
+  box-shadow:0 6px 20px rgba(190,140,150,.20);
+  display:grid;place-items:center;
 }
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
 .title{
-  margin:18px 0 0;font-size:28px;font-weight:800;letter-spacing:-1.1px;color:#332c25;line-height:1.2;
-}
-.bio{
-  margin:12px 0 0;font-size:15px;line-height:1.62;letter-spacing:-.35px;
-  color:var(--ink-soft);font-weight:500;
+  margin:18px 0 0;
+  font-size:26px;font-weight:800;letter-spacing:-.8px;
+  color:#2c2225;
 }
 
-/* 검색 */
+/* ── 검색창 ── */
 .search{
-  display:flex;align-items:center;gap:10px;
-  margin-top:26px;padding:0 18px;height:56px;
-  background:var(--card);border-radius:16px;
-  box-shadow:0 1px 2px rgba(101,86,65,.05),0 6px 16px rgba(101,86,65,.045);
+  margin-top:26px;
+  background:#fff;border-radius:14px;
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 4px 16px rgba(170,120,130,.10);
+  display:flex;align-items:center;
+  padding:0 18px;height:48px;
 }
-.search svg{flex:none;width:19px;height:19px;color:#b0a89c}
+.search svg{flex:none;color:#b9a3a8}
 .search input{
-  flex:1;min-width:0;height:100%;border:0;outline:0;background:transparent;
-  font-size:15.5px;letter-spacing:-.3px;color:var(--ink);
+  width:100%;border:0;outline:0;background:transparent;
+  padding:0 12px;font-size:16px;letter-spacing:-.3px;
 }
-.search input::placeholder{color:var(--placeholder);font-weight:400}
-.search input::-webkit-search-cancel-button{-webkit-appearance:none}
+.search input::placeholder{color:#b9a3a8}
+.search input::-webkit-search-cancel-button{display:none}
 
-/* 상품 리스트 */
-.list{margin-top:18px;display:flex;flex-direction:column;gap:13px}
-.card{
+.guide{
+  margin:16px 0 0;text-align:center;
+  font-size:14.5px;color:var(--ink2);letter-spacing:-.3px;
+}
+.divider{
+  height:0;border:0;border-top:1px dashed var(--line);
+  margin:22px -16px 0;
+}
+
+/* ── 스마트스토어 배너 카드 ── */
+.banner{
   display:flex;align-items:center;gap:14px;
-  background:var(--card);border-radius:16px;padding:12px;
-  text-decoration:none;color:inherit;
-  box-shadow:0 1px 2px rgba(101,86,65,.05),0 6px 16px rgba(101,86,65,.045);
-  transition:transform .12s ease;
+  margin-top:22px;padding:13px 16px;
+  background:var(--card);border-radius:16px;
+  box-shadow:var(--shadow);
+  text-decoration:none;
+  transition:transform .15s ease,box-shadow .15s ease;
 }
-.card:active{transform:scale(.985)}
-.thumb{
-  flex:none;width:68px;height:68px;border-radius:12px;overflow:hidden;
-  background:#f6f1e8;display:flex;align-items:center;justify-content:center;
+.banner:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(150,100,110,.12)}
+.banner__thumb{
+  width:60px;height:60px;flex:none;border-radius:12px;
+  background:#fdeef1;overflow:hidden;display:grid;place-items:center;
 }
-.thumb img{width:100%;height:100%;object-fit:cover}
-.thumb .fallback{font-size:26px;line-height:1}
-.card-name{
-  flex:1;min-width:0;font-size:16px;font-weight:600;letter-spacing:-.5px;line-height:1.38;color:#312a23;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+.banner__thumb img{width:100%;height:100%;object-fit:cover}
+.banner__text{
+  flex:1;text-align:center;font-size:15.5px;font-weight:700;
+  letter-spacing:-.4px;color:#3a2b2f;
 }
-.chev{flex:none;width:18px;height:18px;color:var(--chevron)}
+.chev{color:#cbb6ba;flex:none;display:grid;place-items:center}
 
-.empty{display:none;text-align:center;padding:52px 10px 40px;color:var(--muted)}
-.empty.on{display:block}
-.empty p{margin:0;font-size:14.5px;line-height:1.7;letter-spacing:-.3px}
-.empty strong{display:block;color:#6b6156;font-size:15px;font-weight:600;margin-bottom:6px}
+/* ── 상품 리스트 ── */
+.count{margin:20px 4px -6px;font-size:12.5px;color:var(--muted);text-align:center;letter-spacing:-.2px}
+.count[hidden]{display:none}
+.list{display:flex;flex-direction:column;gap:14px;margin-top:22px}
+.item{
+  display:flex;align-items:center;gap:14px;
+  background:var(--card);border-radius:16px;
+  padding:14px;box-shadow:var(--shadow);
+  text-decoration:none;
+  transition:transform .15s ease,box-shadow .15s ease;
+}
+.item:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(150,100,110,.12)}
+.item:active{transform:scale(.995)}
+.item__thumb{
+  width:70px;height:70px;flex:none;border-radius:12px;
+  background:#fdeef1;overflow:hidden;display:grid;place-items:center;
+  font-size:28px;
+}
+.item__thumb img{width:100%;height:100%;object-fit:cover}
+.item__body{flex:1;min-width:0;text-align:center}
+.item__name{
+  font-size:16px;font-weight:700;letter-spacing:-.5px;line-height:1.42;
+  color:#2f2428;word-break:keep-all;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  margin:0 auto;
+}
+.item__sub{
+  margin-top:7px;font-size:14px;color:var(--ink2);letter-spacing:-.3px;
+}
+
+.empty{
+  margin-top:16px;background:#fff;border-radius:16px;
+  padding:52px 22px;text-align:center;box-shadow:var(--shadow);
+}
+.empty .emoji{font-size:40px}
+.empty strong{display:block;margin-top:10px;font-size:17px;letter-spacing:-.5px}
+.empty p{margin:8px 0 0;font-size:13.5px;color:var(--muted);line-height:1.6}
 
 footer{
-  margin-top:30px;text-align:center;font-size:11px;line-height:1.75;
-  color:#b6ac9c;letter-spacing:-.1px;
+  margin-top:38px;text-align:center;
+  color:var(--muted);font-size:11.5px;line-height:1.85;letter-spacing:-.2px;
 }
+footer strong{display:block;color:#6d565b;font-size:12px;margin-bottom:4px;letter-spacing:.5px}
 
-/* 토스트 */
 .toast{
-  position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom));
-  transform:translate(-50%,14px);opacity:0;pointer-events:none;
-  background:rgba(48,42,34,.92);color:#fff;font-size:13px;letter-spacing:-.2px;
-  padding:11px 18px;border-radius:999px;white-space:nowrap;
-  transition:opacity .22s ease,transform .22s ease;z-index:10;
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,14px);
+  background:rgba(58,43,47,.92);color:#fff;
+  font-size:13px;padding:11px 18px;border-radius:999px;
+  opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;
+  z-index:60;white-space:nowrap;
 }
-.toast.on{opacity:1;transform:translate(-50%,0)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
 </style>
 </head>
 <body>
 
-<div class="notice" id="notice">
-  <div class="notice-track">일부 링크는 쿠팡 파트너스 활동으로 수수료를 제공받을 수 있습니다.</div>
+<div class="notice" role="note" aria-label="쿠팡 파트너스 안내">
+  <div class="notice__track">
+    <span class="notice__item">📢 이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</span>
+    <span class="notice__item" aria-hidden="true">📢 이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</span>
+  </div>
 </div>
 
 <div class="wrap">
-  <div class="topbar">
-    <button class="round" id="copyBtn" type="button" aria-label="페이지 링크 복사" title="링크 복사">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M9.6 14.4 14.4 9.6"/>
-        <path d="M11.2 7.2l1.5-1.5a3.8 3.8 0 0 1 5.4 5.4l-1.5 1.5"/>
-        <path d="M12.8 16.8l-1.5 1.5a3.8 3.8 0 0 1-5.4-5.4l1.5-1.5"/>
+
+  <div class="topicons">
+    <button class="iconbtn" id="copyLink" type="button" aria-label="링크 복사" title="링크 복사">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M10 13a5 5 0 0 0 7.07 0l2.12-2.12a5 5 0 0 0-7.07-7.07L10.8 5.13"/>
+        <path d="M14 11a5 5 0 0 0-7.07 0L4.8 13.12a5 5 0 0 0 7.07 7.07l1.32-1.32"/>
       </svg>
     </button>
-    <button class="round" id="shareBtn" type="button" aria-label="페이지 공유" title="공유">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <circle cx="17.5" cy="5.5" r="2.6"/>
-        <circle cx="6.5" cy="12" r="2.6"/>
-        <circle cx="17.5" cy="18.5" r="2.6"/>
-        <path d="M8.9 10.7l6.2-3.8M8.9 13.3l6.2 3.8"/>
+    <button class="iconbtn" id="shareBtn" type="button" aria-label="공유" title="공유">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <path d="m8.6 10.5 6.8-4M8.6 13.5l6.8 4"/>
       </svg>
     </button>
   </div>
 
-  <header class="profile">
-    <img class="avatar" src="./avatar.png" alt="데일리템픽 프로필" width="100" height="100">
+  <div class="profile">
+    <div class="avatar"><img src="./avatar.png" alt="데일리템픽 프로필" width="104" height="104"></div>
     <h1 class="title">데일리템픽</h1>
-    <p class="bio">
-      🏡 생활이 편해지는 신박한 꿀템 모음 ✨<br>
-      💝 주방·수납·청소 실용템 기록 🫧<br>
-      👇 번호 또는 상품명으로 바로 찾아보세요!
-    </p>
-  </header>
+  </div>
 
-  <label class="search" for="q">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true">
-      <circle cx="11" cy="11" r="7"/><path d="m16.2 16.2 4.3 4.3"/>
+  <label class="search" for="search">
+    <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/>
     </svg>
-    <input id="q" type="search" inputmode="search" autocomplete="off" autocorrect="off" spellcheck="false" placeholder="검색어를 입력하세요" aria-label="번호 또는 상품명 검색">
+    <input id="search" type="search" placeholder="검색어를 입력하세요" autocomplete="off" aria-label="상품번호 또는 키워드 검색">
   </label>
 
-  <div class="list" id="list"></div>
-  <div class="empty" id="empty">
-    <strong>검색 결과가 없어요</strong>
-    <p>번호나 상품명을 다시 확인해 주세요.</p>
-  </div>
+  <p class="guide">👆🏻 상품번호나 키워드로 검색해주세요 🩷</p>
+  <hr class="divider">
 
-  <footer>데일리템픽 · 상품 구매와 배송은 연결된 판매처에서 진행됩니다.</footer>
+  <a class="banner" id="storeBanner" href="#" target="_blank" rel="noopener noreferrer" hidden>
+    <span class="banner__thumb"><img src="./avatar.png" alt="" width="58" height="58"></span>
+    <span class="banner__text">🏡 모어픽 스마트스토어 바로가기</span>
+    <span class="chev">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+    </span>
+  </a>
+
+  <p class="count" id="count"></p>
+  <div class="list" id="list" aria-live="polite"></div>
+
+  <footer>
+    <strong>MOREPICK · 모어픽</strong>
+    <div>상품 구매·결제·배송은 연결된 판매처에서 진행됩니다.</div>
+    <div>가격·배송비·구성·재고는 판매처 상세페이지에서 확인해 주세요.</div>
+  </footer>
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="./products.js?v=20261127"></script>
+<script src="./products.js?v=20261127-temduck"></script>
 <script>
-(function () {
-  "use strict";
-  var data = window.MOREPICK_DATA || { products: [] };
-  var items = (Array.isArray(data.products) ? data.products : []).filter(function (p) {
-    return p && p.name && p.url;
-  });
+(function(){
+"use strict";
 
-  var list = document.getElementById("list");
-  var empty = document.getElementById("empty");
-  var input = document.getElementById("q");
-  var toastEl = document.getElementById("toast");
+const data = window.MOREPICK_DATA || {storeUrl:"", products:[]};
+const items = (Array.isArray(data.products) ? data.products : [])
+  .filter(p => p && p.name && p.url)
+  .slice()
+  .sort((a,b) => Number(b.id) - Number(a.id));   // 최신 번호가 위로
 
-  function safeUrl(url) {
-    try {
-      var u = new URL(url);
-      return (u.protocol === "https:" || u.protocol === "http:") ? u.href : null;
-    } catch (e) { return null; }
+const search = document.getElementById("search");
+const list = document.getElementById("list");
+const count = document.getElementById("count");
+const banner = document.getElementById("storeBanner");
+const toast = document.getElementById("toast");
+
+function safeUrl(url){
+  try{
+    const u = new URL(url, location.href);
+    return ["https:","http:"].includes(u.protocol) ? u.href : null;
+  }catch(e){ return null; }
+}
+function node(tag, cls, text){
+  const el = document.createElement(tag);
+  if(cls) el.className = cls;
+  if(text !== undefined) el.textContent = text;
+  return el;
+}
+function chevron(){
+  const span = node("span","chev");
+  span.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>';
+  return span;
+}
+
+/* 스마트스토어 배너 */
+const storeHref = safeUrl(data.storeUrl);
+if(storeHref){ banner.href = storeHref; banner.hidden = false; }
+
+/* 검색 */
+let query = "";
+function norm(v){ return String(v || "").toLowerCase().replace(/[\s.,·\-()\[\]{}#]/g, ""); }
+function matches(p, q){
+  if(!q) return true;
+  const hay = norm(p.id) + norm(p.name) + norm(p.category);
+  return hay.includes(q);
+}
+
+function render(){
+  const q = norm(query);
+  const found = items.filter(p => matches(p, q));
+  list.replaceChildren();
+
+  count.textContent = q ? "검색 결과 " + found.length + "개" : "";
+  count.hidden = !q;
+
+  if(!found.length){
+    const box = node("div","empty");
+    box.append(node("div","emoji", "🔎"), node("strong","", "검색 결과가 없어요"),
+               node("p","", "다른 상품번호나 키워드로 검색해 보세요."));
+    list.append(box);
+    return;
   }
 
-  function isCoupang(url) { return /(^|\.)coupang\.com/i.test(url) || /link\.coupang\.com/i.test(url); }
+  found.forEach(p => {
+    const a = node("a","item");
+    a.href = safeUrl(p.url) || "#";
+    a.target = "_blank";
+    a.rel = /coupang\.com/i.test(p.url) ? "noopener noreferrer sponsored" : "noopener noreferrer";
+    a.setAttribute("aria-label", p.id + ". " + p.name + " 상품 보기");
 
-  var CHEV = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>';
-
-  function render() {
-    var q = input.value.trim().toLowerCase().replace(/\s+/g, "");
-    var found = items.filter(function (p) {
-      if (!q) return true;
-      var id = String(p.id || "");
-      var name = String(p.name || "").toLowerCase().replace(/\s+/g, "");
-      if (name.indexOf(q) !== -1 || id.toLowerCase().indexOf(q) !== -1) return true;
-      // 숫자 검색은 앞자리 0을 무시 (예: 10 → 010)
-      if (/^\d+$/.test(q) && /^\d+$/.test(id) && parseInt(id, 10) === parseInt(q, 10)) return true;
-      return false;
-    });
-
-    list.textContent = "";
-    var frag = document.createDocumentFragment();
-
-    found.forEach(function (p) {
-      var href = safeUrl(p.url);
-      if (!href) return;
-
-      var a = document.createElement("a");
-      a.className = "card";
-      a.href = href;
-      a.target = "_blank";
-      a.rel = isCoupang(href) ? "noopener noreferrer sponsored" : "noopener noreferrer";
-      a.setAttribute("aria-label", String(p.id || "") + "번 " + p.name);
-
-      var thumb = document.createElement("div");
-      thumb.className = "thumb";
-      var imgSrc = safeUrl(p.image);
-      if (imgSrc) {
-        var img = document.createElement("img");
-        img.src = imgSrc;
-        img.alt = p.name;
-        img.loading = "lazy";
-        img.decoding = "async";
-        img.referrerPolicy = "no-referrer";
-        img.onerror = function () {
-          thumb.textContent = "";
-          var fb = document.createElement("span");
-          fb.className = "fallback";
-          fb.textContent = "🛍️";
-          thumb.appendChild(fb);
-        };
-        thumb.appendChild(img);
-      } else {
-        var fb2 = document.createElement("span");
-        fb2.className = "fallback";
-        fb2.textContent = "🛍️";
-        thumb.appendChild(fb2);
-      }
-
-      var name = document.createElement("div");
-      name.className = "card-name";
-      name.textContent = String(p.id || "") + ". " + p.name;
-
-      a.appendChild(thumb);
-      a.appendChild(name);
-      a.insertAdjacentHTML("beforeend", CHEV);
-      frag.appendChild(a);
-    });
-
-    list.appendChild(frag);
-    empty.classList.toggle("on", found.length === 0);
-  }
-
-  /* 상단 고지 바: 글자가 넘칠 때만 흐르게 */
-  (function () {
-    var bar = document.getElementById("notice");
-    var track = bar.querySelector(".notice-track");
-    if (track.scrollWidth > bar.clientWidth - 24) bar.classList.add("scroll");
-  })();
-
-  var toastTimer;
-  function toast(msg) {
-    toastEl.textContent = msg;
-    toastEl.classList.add("on");
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () { toastEl.classList.remove("on"); }, 1800);
-  }
-
-  function pageUrl() {
-    return location.origin + location.pathname;
-  }
-
-  function copyText(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      return navigator.clipboard.writeText(text).then(function () { return true; }, function () { return legacyCopy(text); });
+    const thumb = node("span","item__thumb");
+    const img = safeUrl(p.image);
+    if(img){
+      const i = node("img"); i.src = img; i.alt = ""; i.loading = "lazy"; i.width = 70; i.height = 70;
+      thumb.append(i);
+    }else{
+      thumb.textContent = "🛍️";
     }
-    return Promise.resolve(legacyCopy(text));
-  }
 
-  function legacyCopy(text) {
-    try {
-      var ta = document.createElement("textarea");
-      ta.value = text;
-      ta.setAttribute("readonly", "");
-      ta.style.position = "fixed";
-      ta.style.opacity = "0";
-      document.body.appendChild(ta);
-      ta.select();
-      var ok = document.execCommand("copy");
-      document.body.removeChild(ta);
-      return ok;
-    } catch (e) { return false; }
-  }
+    const body = node("span","item__body");
+    body.append(node("span","item__name", p.id + ". " + p.name));
 
-  document.getElementById("copyBtn").addEventListener("click", function () {
-    copyText(pageUrl()).then(function (ok) {
-      toast(ok ? "링크를 복사했어요" : "주소창의 링크를 복사해 주세요");
-    });
+    list.append(a);
+    a.append(thumb, body, chevron());
+    // 보조문구는 블록으로 (중앙 정렬 유지)
+    body.append(node("span","item__sub", "👉 클릭 후 바로 확인"));
   });
+}
 
-  document.getElementById("shareBtn").addEventListener("click", function () {
-    var payload = { title: "데일리템픽", text: "생활이 편해지는 신박한 꿀템 모음", url: pageUrl() };
-    if (navigator.share) {
-      navigator.share(payload).catch(function () { /* 사용자가 닫은 경우 */ });
-      return;
+search.addEventListener("input", () => { query = search.value.trim(); render(); });
+
+/* 링크 복사 / 공유 */
+let toastTimer;
+function showToast(msg){
+  toast.textContent = msg;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 1800);
+}
+document.getElementById("copyLink").addEventListener("click", async () => {
+  const url = location.href;
+  try{
+    await navigator.clipboard.writeText(url);
+    showToast("링크가 복사됐어요 🩷");
+  }catch(e){
+    const t = document.createElement("textarea");
+    t.value = url; t.style.position = "fixed"; t.style.opacity = "0";
+    document.body.append(t); t.select();
+    try{ document.execCommand("copy"); showToast("링크가 복사됐어요 🩷"); }
+    catch(err){ showToast("복사가 안 됐어요. 주소창에서 복사해 주세요."); }
+    t.remove();
+  }
+});
+document.getElementById("shareBtn").addEventListener("click", async () => {
+  const shareData = { title: document.title, text: "데일리템픽 · 살림 꿀템 모음", url: location.href };
+  if(navigator.share){
+    try{ await navigator.share(shareData); }catch(e){ /* 사용자가 닫음 */ }
+  }else{
+    try{ await navigator.clipboard.writeText(location.href); showToast("링크가 복사됐어요 🩷"); }
+    catch(e){ showToast("공유를 지원하지 않는 브라우저예요."); }
+  }
+});
+
+/* 마퀴: 화면 폭에 맞춰 문구를 이어 붙이고, 길이에 비례해 속도를 일정하게 */
+(function initMarquee(){
+  const bar = document.querySelector(".notice");
+  const track = bar && bar.querySelector(".notice__track");
+  if(!track) return;
+  const base = track.firstElementChild;
+  const fill = () => {
+    while(track.children.length > 2) track.lastElementChild.remove();
+    let guard = 0;
+    while(track.scrollWidth < window.innerWidth * 2 && guard++ < 14){
+      const c = base.cloneNode(true);
+      c.setAttribute("aria-hidden", "true");
+      track.append(c);
     }
-    copyText(pageUrl()).then(function (ok) {
-      toast(ok ? "링크를 복사했어요" : "주소창의 링크를 복사해 주세요");
-    });
-  });
+    if(track.children.length % 2) {
+      const c = base.cloneNode(true);
+      c.setAttribute("aria-hidden", "true");
+      track.append(c);
+    }
+    const half = track.scrollWidth / 2;
+    track.style.animationDuration = Math.round(half / 42) + "s";  // 약 42px/초
+  };
+  fill();
+  let t;
+  window.addEventListener("resize", () => { clearTimeout(t); t = setTimeout(fill, 200); });
+})();
 
-  input.addEventListener("input", render);
-  render();
+render();
 })();
 </script>
-</body>
-</html>
+</body></html>
