@@ -85,6 +85,14 @@ window.MOREPICK_DATA = {
       "image": "https://cdn1.domeggook.com/upload/item/2026/10/17/17922321819C26AD8B3A5F1EC2B95A2A/17922321819C26AD8B3A5F1EC2B95A2A_img_760?hash=0f176600752ffc2a17d719fd5526d976",
       "url": "https://smartstore.naver.com/more-pick/products/13873527432",
       "sourceUrl": "https://www.instagram.com/p/DgNNn4SSzUA/"
+    },
+    {
+      "id": "011",
+      "name": "4in1 스프레이 청소브러쉬 세트 1세트",
+      "category": "생활템",
+      "description": "손잡이에 물을 담아 버튼으로 분사하며 닦는 4in1 청소브러쉬 세트입니다. 창틀·욕실 타일·방충망처럼 좁은 곳을 닦기 좋고, 브러쉬 헤드를 바꿔 끼워 용도에 맞게 쓸 수 있습니다. 물은 한 번에 많이 담지 말고 뚜껑을 끝까지 닫아 주세요. 구매 전 판매자명 모어픽과 선택 옵션을 확인해 주세요.",
+      "image": "./img/011.jpg",
+      "url": "https://smartstore.naver.com/more-pick/products/13894226527"
     }
   ]
 };
