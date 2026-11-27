@@ -103,6 +103,15 @@ window.MOREPICK_DATA = {
       "image": "./img/012.jpg",
       "url": "https://smartstore.naver.com/more-pick/products/13868250019",
       "sourceUrl": "https://www.threads.com/@dailytempick1/post/DgOv8G1ErzS"
+    },
+    {
+      "id": "013",
+      "name": "스텐클리너 스테인리스 연마제 100g 1개",
+      "category": "주방템",
+      "description": "탄 냄비·팬 바닥의 눌어붙은 자국과 물때를 스펀지에 덜어 문질러 닦는 스테인리스 연마제입니다. 튜브형 100g 구성이고, 스테인리스 전용이에요. 사용 전 눈에 띄지 않는 부분에 먼저 테스트하고, 코팅 팬에는 쓰지 마세요. 구매 전 판매자명 모어픽과 선택 옵션을 확인해 주세요.",
+      "image": "./img/013.jpg",
+      "url": "https://smartstore.naver.com/more-pick/products/13894236015",
+      "sourceUrl": "https://www.instagram.com/p/DgPXL2OyFSc/"
     }
   ]
 };
