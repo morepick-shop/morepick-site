@@ -94,6 +94,15 @@ window.MOREPICK_DATA = {
       "image": "./img/011.jpg",
       "url": "https://smartstore.naver.com/more-pick/products/13894226527",
       "sourceUrl": "https://www.instagram.com/p/DgOnh3rSem5/"
+    },
+    {
+      "id": "012",
+      "name": "이동식 틈새 수납장 바퀴형 트롤리 2개 세트",
+      "category": "정리수납",
+      "description": "좁은 틈새에 세워 두는 바퀴형 슬림 수납장입니다. 세제·욕실용품처럼 자주 꺼내는 물건을 한 칸에 모아 두고 바퀴로 당겨 쓸 수 있어요. 구성·단수·치수와 사용 가능한 바닥 조건은 스마트스토어 상세에서 확인해 주세요.",
+      "image": "./img/012.jpg",
+      "url": "https://smartstore.naver.com/more-pick/products/13868250019",
+      "sourceUrl": ""
     }
   ]
 };
