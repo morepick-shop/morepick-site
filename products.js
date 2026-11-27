@@ -112,6 +112,14 @@ window.MOREPICK_DATA = {
       "image": "./img/013.jpg",
       "url": "https://smartstore.naver.com/more-pick/products/13894236015",
       "sourceUrl": "https://www.instagram.com/p/DgPXL2OyFSc/"
+    },
+    {
+      "id": "014",
+      "name": "주방 싱크대 물빠짐 선반 건조대 1개",
+      "category": "주방템",
+      "description": "싱크대 안쪽에 걸어 두고 수세미·행주·설거지 도구를 올려 두는 물빠짐 선반입니다. 물이 아래로 빠지도록 홈이 나 있고 스테인리스 재질이에요. 설치 가능한 수도꼭지 모양·폭과 구성은 스마트스토어 상세에서 확인해 주세요.",
+      "image": "./img/014.jpg",
+      "url": "https://smartstore.naver.com/more-pick/products/13894234049"
     }
   ]
 };
