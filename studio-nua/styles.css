@@ -1457,18 +1457,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .brand__name { font-size: 1rem; }
   .brand__sub { font-size: 0.5rem; letter-spacing: 0.26em; }
 
-  .hero { padding-top: 112px; padding-bottom: 64px; }
-  .hero__title { font-size: clamp(2.05rem, 8.4vw, 2.7rem); line-height: 1.22; }
-  .hero__serif { font-size: 1.15rem; }
-  .hero__lead { font-size: 0.92rem; }
-  .hero__actions { flex-direction: column; gap: 10px; }
-  .hero__actions .btn { width: 100%; white-space: nowrap; }
-  .hero__facts { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; }
-  .hero__facts strong { font-size: 1.08rem; }
-  .hero__visual { padding-bottom: 34px; }
-  .hero__phone { display: none; }
-  .hero__visual-meta { position: static; margin-top: 14px; justify-content: space-between; font-size: 0.56rem; }
-
   .marquee { padding: 15px 0; }
   .marquee__track { gap: 24px; font-size: 0.58rem; letter-spacing: 0.22em; }
 
@@ -1509,4 +1497,132 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
   .footer__top { grid-template-columns: 1fr; gap: 28px; }
   .footer__bottom { flex-direction: column; gap: 6px; }
+}
+
+/* ==========================================================================
+   HERO — 모바일·태블릿(≤768): 헤드라인 + CTA + ATELIER ON 목업이 첫 화면 안에
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    padding: 76px 0 22px;
+  }
+
+  .hero__grid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  /* 헤드라인·CTA·지표를 한 격자에 펼쳐 목업이 CTA 바로 아래에 오게 한다 */
+  .hero__copy { display: contents; }
+
+  .hero__eyebrow {
+    order: 1;
+    gap: 10px;
+    font-size: 0.56rem;
+    letter-spacing: 0.26em;
+    margin-bottom: clamp(12px, 2.6vw, 20px);
+  }
+  .hero__eyebrow .rule { width: 26px; }
+
+  .hero__title {
+    order: 2;
+    font-size: clamp(2.1rem, 9.6vw, 3.05rem);
+    line-height: 1.12;
+    letter-spacing: -0.045em;
+  }
+
+  .hero__serif {
+    order: 3;
+    margin-top: clamp(10px, 2vw, 16px);
+    font-size: clamp(1rem, 2.3vw, 1.32rem);
+    line-height: 1.35;
+  }
+
+  .hero__lead {
+    order: 4;
+    margin-top: clamp(12px, 2.4vw, 20px);
+    max-width: 42ch;
+    font-size: clamp(0.87rem, 1.9vw, 1rem);
+    line-height: 1.66;
+  }
+
+  .hero__actions {
+    order: 5;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-top: clamp(16px, 3vw, 26px);
+  }
+  .hero__actions .btn {
+    width: auto;
+    padding: 1em 1.1em;
+    font-size: clamp(0.78rem, 1.8vw, 0.86rem);
+    white-space: nowrap;
+  }
+  .hero__actions .btn--light { flex: 1 1 auto; }
+  .hero__actions .btn--ghost { flex: 0 0 auto; }
+
+  .hero__visual {
+    order: 6;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-width: none;
+    padding: 26px 0 0;
+  }
+  .hero__phone {
+    display: block;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    width: 28%;
+    transform: rotate(2.2deg);
+  }
+  .hero__visual:hover .hero__phone { transform: rotate(1.4deg) translateY(-6px); }
+  .hero__visual-meta {
+    order: -1;
+    position: static;
+    margin: 0 0 12px;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: clamp(0.5rem, 1.4vw, 0.58rem);
+  }
+
+  .hero__facts {
+    order: 7;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    margin-top: clamp(22px, 3.4vw, 30px);
+    padding-top: 14px;
+  }
+  .hero__facts li {
+    gap: 2px;
+    padding-left: 10px;
+    border-left: 1px solid var(--line-soft);
+  }
+  .hero__facts li:first-child { padding-left: 0; border-left: 0; }
+  .hero__facts strong { font-size: clamp(1rem, 2.4vw, 1.2rem); }
+  .hero__facts span { font-size: clamp(0.52rem, 1.5vw, 0.62rem); letter-spacing: 0.1em; }
+}
+
+/* 태블릿 폭에서는 목업을 화면 끝까지 늘리지 않고 본문 폭에 맞춘다 */
+@media (min-width: 641px) and (max-width: 768px) {
+  .hero__visual { align-self: center; width: 100%; max-width: 620px; }
+}
+
+/* 아주 낮은 화면(iPhone SE 등)에서는 목업과 CTA가 함께 남도록 더 조인다 */
+@media (max-width: 768px) and (max-height: 700px) {
+  .hero { padding-top: 56px; padding-bottom: 10px; }
+  .hero__serif { display: none; }
+  .hero__lead { font-size: 0.85rem; line-height: 1.62; }
+  .hero__visual { padding-top: 18px; }
+  .hero__visual-meta { margin-bottom: 8px; }
+  .hero__facts { margin-top: 12px; padding-top: 10px; }
 }
