@@ -600,6 +600,20 @@ if(spotDim) spotDim.addEventListener("click", () => closeSpot());
 document.addEventListener("keydown", (e) => {
   if((e.key === "Escape" || e.key === "Esc") && !spot.hidden) closeSpot();
 });
+/* 주소만 바뀌는 경우(새로고침 없는 해시·뒤로가기)에도 모달 상태를 주소에 맞춘다 */
+function syncFromUrl(){
+  const key = readDeepLink();
+  const hit = key ? items.find(p => idKey(p.id) === key) : null;
+  if(hit){
+    if(!spot.hidden && spotProduct && spotProduct.id === hit.id) return;
+    openSpot(hit);
+    return;
+  }
+  if(!spot.hidden) closeSpot();
+  if(key) showToast("모음집에 [" + key + "]번 상품이 아직 없어요");
+}
+window.addEventListener("hashchange", syncFromUrl);
+window.addEventListener("popstate", syncFromUrl);
 
 /* 마퀴: 화면 폭에 맞춰 문구를 이어 붙이고, 길이에 비례해 속도를 일정하게 */
 (function initMarquee(){
