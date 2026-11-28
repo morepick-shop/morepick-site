@@ -110,7 +110,8 @@ body::after{
   padding:3px 7px 2px;
   line-height:1;
 }
-.demo-bar__text{flex:1 1 auto;opacity:.78;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.demo-bar__text{flex:1 1 auto;min-width:0;opacity:.78;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.demo-bar__text--short{display:none}
 .demo-bar__cta{
   flex:0 0 auto;
   color:var(--ivory);
@@ -124,7 +125,9 @@ body::after{
 @media (max-width:720px){
   .demo-bar{gap:9px;font-size:11px;min-height:46px}
   .demo-bar__text{display:none}
-  .demo-bar__cta{flex:1 1 auto;text-align:right;border-bottom:0}
+  .demo-bar__text--short{display:inline;flex:1 1 auto;min-width:0;font-size:10px;letter-spacing:0;opacity:.72}
+  .demo-bar__cta{flex:0 0 auto;text-align:right;border-bottom:0}
+  .demo-bar__cta-label{display:none}
 }
 @media print{.demo-bar{display:none}}
 
