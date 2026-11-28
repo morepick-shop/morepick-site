@@ -761,7 +761,15 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .offer__text b { font-weight: 500; color: var(--sand); }
 .offer__text strong { font-weight: 500; color: var(--text); }
 .offer__text span { color: var(--stone-dim); font-size: 0.78rem; }
-.offer__text--sub { margin-top: 10px; font-size: 0.76rem; color: var(--stone-dim); line-height: 1.7; }
+.offer__text .offer__text-sub {
+  display: block;
+  margin-top: 9px;
+  padding-top: 9px;
+  border-top: 1px solid rgba(198, 166, 121, 0.16);
+  font-size: 0.74rem;
+  line-height: 1.7;
+  color: var(--stone-dim);
+}
 
 .plan__offer {
   display: flex;
