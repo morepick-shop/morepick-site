@@ -126,18 +126,23 @@
 
   function buildSummary() {
     var lines = ['[스튜디오 누아 문의]'];
-    lines.push('상호/브랜드: ' + val('f-name'));
+    lines.push('업체명/성함: ' + val('f-name'));
     lines.push('연락처: ' + val('f-phone'));
-    if (val('f-industry')) lines.push('업종: ' + val('f-industry'));
-    if (val('f-type')) lines.push('원하는 유형: ' + val('f-type'));
-    if (val('f-budget')) lines.push('예산 범위: ' + val('f-budget'));
-    if (val('f-date')) lines.push('희망 오픈일: ' + val('f-date'));
-    if (val('f-site')) lines.push('현재 사이트: ' + val('f-site'));
+    if (val('f-industry')) lines.push('업종/유형: ' + val('f-industry'));
     if (val('f-message')) {
       lines.push('');
       lines.push(val('f-message'));
     }
     return lines.join('\n');
+  }
+
+  function setConsentError(bad) {
+    var consentEl = doc.getElementById('f-consent');
+    var err = doc.getElementById('f-consent-err');
+    var wrap = doc.querySelector('.consent');
+    if (err) err.hidden = !bad;
+    if (consentEl) consentEl.setAttribute('aria-invalid', bad ? 'true' : 'false');
+    if (wrap) wrap.classList.toggle('is-invalid', bad);
   }
 
   if (form && done && summary) {
@@ -150,12 +155,16 @@
       var nameBad = val('f-name').length < 1;
       var phoneRaw = val('f-phone').replace(/[^0-9+]/g, '');
       var phoneBad = phoneRaw.replace(/\+/g, '').length < 9 || phoneRaw.replace(/\+/g, '').length > 12;
+      var consentEl = doc.getElementById('f-consent');
+      var consentBad = !(consentEl && consentEl.checked);
 
       setError('f-name', nameBad);
       setError('f-phone', phoneBad);
+      setConsentError(consentBad);
 
-      if (nameBad || phoneBad) {
-        var firstBad = doc.getElementById(nameBad ? 'f-name' : 'f-phone');
+      if (nameBad || phoneBad || consentBad) {
+        var badId = nameBad ? 'f-name' : phoneBad ? 'f-phone' : 'f-consent';
+        var firstBad = doc.getElementById(badId);
         if (firstBad) firstBad.focus();
         return;
       }
@@ -179,6 +188,11 @@
       if (!el) return;
       el.addEventListener('input', function () { setError(id, false); });
     });
+
+    var consentField = doc.getElementById('f-consent');
+    if (consentField) {
+      consentField.addEventListener('change', function () { setConsentError(false); });
+    }
 
     if (editBtn) {
       editBtn.addEventListener('click', function () {
@@ -245,22 +259,10 @@
     }
   }
 
-  function setBudget(total) {
-    var budget = doc.getElementById('f-budget');
-    if (!budget) return;
-    var bucket = total <= 500000 ? '50만 원 이하'
-      : total <= 1000000 ? '50~100만 원'
-      : total <= 1500000 ? '100~150만 원'
-      : total <= 2000000 ? '150~200만 원' : '200만 원 이상';
-    budget.value = bucket;
-  }
-
   /* ---------- free diagnosis CTA ---------- */
   var diagCta = doc.getElementById('diagCta');
   if (diagCta) {
     diagCta.addEventListener('click', function () {
-      var typeSel = doc.getElementById('f-type');
-      if (typeSel) typeSel.value = '아직 모름';
       showFormView();
       setTaggedLine('무료 진단', '[무료 진단] 5항목 체크를 신청합니다. 지금 사이트 주소를 함께 적어 주세요.');
     });
@@ -354,8 +356,8 @@
       lines.push('유형: ' + s.plan.name);
       if (s.pages) lines.push('추가 페이지: ' + s.pages + 'p');
       if (s.labels.length) lines.push('옵션: ' + s.labels.join(', '));
-      lines.push('예상 금액: ' + moneyHelper(s.total) + '원 (오픈 특가 적용 · 부가세 포함)');
-      lines.push('정가: ' + moneyHelper(s.regular) + '원');
+      lines.push('예상 금액: ' + moneyHelper(s.total) + '원 (첫 3곳 조건가 · 부가세 포함)');
+      lines.push('이후 정가: ' + moneyHelper(s.regular) + '원');
       lines.push('기간: ' + s.plan.term + ' · 수정 ' + s.plan.rev);
       if (s.monthly) lines.push('월 유지보수: ' + moneyHelper(s.monthly) + '원 / 월 (별도)');
       if (s.quote) lines.push('예약·결제 기능은 별도 견적');
@@ -373,7 +375,7 @@
       if (calcOut.save) {
         var save = s.regular - s.total;
         calcOut.save.hidden = save <= 0;
-        calcOut.save.textContent = save > 0 ? '정가에서 ' + moneyHelper(save) + '원 줄어든 금액입니다' : '';
+        calcOut.save.textContent = save > 0 ? '이후 정가보다 ' + moneyHelper(save) + '원 낮은 조건가입니다' : '';
       }
       if (s.monthly) {
         calcOut.monthly.hidden = false;
@@ -409,15 +411,9 @@
 
     function applyEstimate(s) {
       showFormView();
-      var typeSel = doc.getElementById('f-type');
-      if (typeSel) {
-        var want = s.type === 'landing' ? '랜딩 원페이지' : '브랜드 5페이지';
-        for (var i = 0; i < typeSel.options.length; i++) {
-          if (typeSel.options[i].value === want) { typeSel.value = want; break; }
-        }
-      }
-      setBudget(s.total);
-      setTaggedLine('견적 계산기', '[견적 계산기] ' + s.breakdown + ' → ' + moneyHelper(s.total) + '원 (정가 ' + moneyHelper(s.regular) + '원)');
+      var industry = doc.getElementById('f-industry');
+      if (industry && !industry.value.trim()) industry.value = s.plan.name;
+      setTaggedLine('견적 계산기', '[견적 계산기] ' + s.breakdown + ' → ' + moneyHelper(s.total) + '원 (이후 정가 ' + moneyHelper(s.regular) + '원)');
     }
 
     function goContact() {

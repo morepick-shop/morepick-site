@@ -761,6 +761,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 .offer__text b { font-weight: 500; color: var(--sand); }
 .offer__text strong { font-weight: 500; color: var(--text); }
 .offer__text span { color: var(--stone-dim); font-size: 0.78rem; }
+.offer__text--sub { margin-top: 10px; font-size: 0.76rem; color: var(--stone-dim); line-height: 1.7; }
 
 .plan__offer {
   display: flex;
@@ -1217,6 +1218,53 @@ button, input, select, textarea { font: inherit; color: inherit; }
   font-size: 0.72rem;
   color: #a4442f;
 }
+
+/* 개인정보 수집·이용 동의 */
+.consent { margin-top: -4px; }
+.consent__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--paper-ink);
+}
+.consent__check input {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin: 3px 0 0;
+  border: 1px solid rgba(18, 16, 14, 0.38);
+  background: transparent;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+.consent__check input:checked {
+  border-color: var(--paper-ink);
+  background-color: var(--paper-ink);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.3 6.4l2.3 2.3 4.9-5.1' fill='none' stroke='%23f1ede5' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 11px 11px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.consent__check input:focus-visible {
+  outline: 2px solid #8a6231;
+  outline-offset: 2px;
+}
+.consent__check em { font-style: normal; color: #8a6231; }
+.consent__note {
+  margin-top: 7px;
+  padding-left: 26px;
+  font-size: 0.68rem;
+  line-height: 1.65;
+  color: #8b8378;
+}
+.consent.is-invalid .consent__check input { border-color: #a4442f; }
+.consent .field__err { padding-left: 26px; }
 
 .hp {
   position: absolute;
