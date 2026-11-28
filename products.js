@@ -121,6 +121,15 @@ window.MOREPICK_DATA = {
       "image": "./img/014.jpg",
       "url": "https://smartstore.naver.com/more-pick/products/13894234049",
       "sourceUrl": "https://www.threads.com/@dailytempick1/post/DgPpmpBkn_A"
+    },
+    {
+      "id": "016",
+      "name": "자석 신발 정리대 너비조절 2단 1개",
+      "category": "수납템",
+      "description": "현관문 등 자성이 있는 철문에 자석으로 붙여 쓰는 2단 신발 정리대입니다. 너비는 40~73cm로 조절되고, 운동화는 위 칸에 슬리퍼는 아래 칸에 넣어 바닥을 비울 수 있어요. 나무·알루미늄·유리문에는 붙지 않으니 문 재질을 먼저 확인해 주세요. 구성·색상·배송비는 스마트스토어 상세에서 확인해 주세요.",
+      "image": "./img/016.jpg",
+      "url": "https://smartstore.naver.com/more-pick/products/13838347874",
+      "sourceUrl": "https://www.instagram.com/p/DgR7tmyyvoc/"
     }
   ]
 };
