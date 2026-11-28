@@ -1376,3 +1376,9 @@ body{padding-bottom:44px}
 .contact__direct span{font-size:12px;letter-spacing:.02em;opacity:.55;align-self:center}
 .footer__base a{border-bottom:1px solid rgba(244,241,234,.28)}
 .footer__base a:hover{color:var(--brass);border-bottom-color:var(--brass)}
+
+/* 샘플 표기 바 높이만큼 히어로를 줄여 히어로 하단 지표가 가려지지 않게 */
+.hero{min-height:calc(100svh - 44px)}
+@media (max-width:720px){
+  .hero{min-height:calc(100svh - 46px)}
+}
