@@ -1666,3 +1666,810 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .hero__visual-meta { margin-bottom: 8px; }
   .hero__facts { margin-top: 12px; padding-top: 10px; }
 }
+
+/* ==========================================================================
+   CONVERSION BLOCKS — 월 4팀 한정 · 무료 진단 5항목 · 계약 전 약속 6개 · 견적 계산기
+   (2026-11-28 상위 10곳 벤치마킹 반영)
+   ========================================================================== */
+
+/* ---------- monthly capacity badge ---------- */
+.capacity {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: clamp(28px, 3.4vw, 40px);
+  padding: 9px 15px;
+  border: 1px solid rgba(198, 166, 121, 0.34);
+  background: rgba(198, 166, 121, 0.06);
+  font-size: 0.64rem;
+  letter-spacing: 0.16em;
+  line-height: 1.5;
+  color: var(--sand);
+  text-transform: uppercase;
+}
+.capacity__dot {
+  flex: none;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--sand);
+}
+
+/* ---------- WRAPPER NOTES ---------- */
+.terms__note {
+  margin-top: 18px;
+  max-width: 74ch;
+  font-size: 0.74rem;
+  line-height: 1.8;
+  color: var(--stone-dim);
+}
+
+.form__note {
+  font-size: 0.72rem;
+  line-height: 1.75;
+  color: #8b8378;
+}
+
+/* ---------- DIAGNOSIS (paper) ---------- */
+.diagnosis {
+  background: var(--paper);
+  color: var(--paper-ink);
+}
+.diagnosis ::selection { background: var(--ink); color: var(--paper); }
+.diagnosis .h2 { color: var(--paper-ink); }
+.diagnosis .lead { color: #5d564c; }
+.diagnosis .lead--right { color: #5d564c; }
+
+.checks {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(16px, 2.4vw, 32px);
+  margin-top: clamp(40px, 5vw, 66px);
+  border-top: 1px solid rgba(18, 16, 14, 0.14);
+}
+.check { padding-top: 22px; }
+.check__no {
+  display: block;
+  margin-bottom: 14px;
+  font-family: var(--serif);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  color: #8a6231;
+}
+.check h3 {
+  font-size: 0.96rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.45;
+  color: var(--paper-ink);
+}
+.check p {
+  margin-top: 8px;
+  font-size: 0.82rem;
+  line-height: 1.78;
+  color: #5d564c;
+}
+
+.diagnosis__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px 32px;
+  margin-top: clamp(32px, 4vw, 46px);
+  padding-top: clamp(24px, 3vw, 32px);
+  border-top: 1px solid rgba(18, 16, 14, 0.12);
+}
+.diagnosis__cta { display: flex; flex-wrap: wrap; gap: 10px; }
+.diagnosis__note {
+  max-width: 46ch;
+  font-size: 0.76rem;
+  line-height: 1.75;
+  color: #6c655b;
+}
+
+/* ---------- PROMISES ---------- */
+.promises { background: var(--ink-2); }
+.promises__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(32px, 6vw, 90px);
+  align-items: start;
+}
+.promises__head .lead { max-width: 34ch; }
+.promises__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(20px, 3vw, 44px);
+}
+.promise {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 10px;
+  padding: 22px 0 24px;
+  border-top: 1px solid var(--line);
+}
+.promise__no {
+  padding-top: 2px;
+  font-family: var(--serif);
+  font-size: 0.86rem;
+  letter-spacing: 0.1em;
+  color: var(--sand);
+}
+.promise h3 {
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.5;
+  color: var(--text);
+}
+.promise p {
+  margin-top: 7px;
+  font-size: 0.8rem;
+  line-height: 1.75;
+  color: var(--stone);
+}
+
+/* ---------- ESTIMATE ---------- */
+.estimate {
+  background:
+    radial-gradient(80% 60% at 15% 0%, rgba(198, 166, 121, 0.05), transparent 60%),
+    var(--ink);
+}
+.estimate__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.82fr);
+  gap: clamp(20px, 3vw, 36px);
+  align-items: start;
+  margin-top: clamp(40px, 4.6vw, 64px);
+}
+
+.calc {
+  padding: clamp(22px, 2.6vw, 34px);
+  border: 1px solid var(--line);
+  background: rgba(23, 21, 18, 0.55);
+}
+.calc__steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(14px, 2.2vw, 28px);
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.calc__step {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  color: var(--stone-dim);
+  cursor: pointer;
+  transition: color 0.35s var(--ease);
+}
+.calc__step span {
+  font-family: var(--serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--stone-dim);
+  transition: color 0.35s var(--ease);
+}
+.calc__step:hover { color: var(--stone); }
+.calc__step.is-active,
+.calc__step.is-done { color: var(--text); }
+.calc__step.is-active span,
+.calc__step.is-done span { color: var(--sand); }
+
+.calc__panel {
+  padding-top: clamp(20px, 2.4vw, 28px);
+  min-height: clamp(232px, 24vw, 288px);
+}
+.calc__panel[hidden] { display: none; }
+.calc__panel:focus { outline: none; }
+.calc__panel:focus-visible { outline: 2px solid var(--sand); outline-offset: 6px; }
+
+.calc__q {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+.calc__sub {
+  margin-top: 6px;
+  font-size: 0.76rem;
+  line-height: 1.7;
+  color: var(--stone-dim);
+}
+
+.calc__options {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+.calc__options--grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+.calc-opt { position: relative; display: block; cursor: pointer; }
+.calc-opt input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.calc-opt__box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-height: 100%;
+  padding: 15px 15px 15px 42px;
+  border: 1px solid var(--line);
+  background: rgba(11, 10, 9, 0.35);
+  transition: border-color 0.35s var(--ease), background-color 0.35s var(--ease);
+}
+.calc-opt__box::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  top: 19px;
+  width: 12px;
+  height: 12px;
+  border: 1px solid rgba(243, 238, 229, 0.32);
+  border-radius: 50%;
+  transition: background-color 0.3s var(--ease), border-color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.calc-opt--check .calc-opt__box::before { border-radius: 1px; }
+.calc-opt__box:hover { border-color: rgba(243, 238, 229, 0.28); }
+.calc-opt input:checked + .calc-opt__box {
+  border-color: rgba(198, 166, 121, 0.55);
+  background: rgba(198, 166, 121, 0.07);
+}
+.calc-opt input:checked + .calc-opt__box::before {
+  border-color: var(--sand);
+  background: var(--sand);
+  box-shadow: inset 0 0 0 3px var(--ink-3);
+}
+.calc-opt input:focus-visible + .calc-opt__box {
+  outline: 2px solid var(--sand);
+  outline-offset: 2px;
+}
+.calc-opt__title {
+  font-size: 0.88rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.calc-opt__meta {
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--stone-dim);
+}
+.calc-opt__price {
+  margin-top: 7px;
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+  color: var(--sand);
+}
+
+.calc__note {
+  margin-top: 14px;
+  font-size: 0.72rem;
+  line-height: 1.7;
+  color: var(--stone-dim);
+}
+
+.calc__foot {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-soft);
+}
+.calc__hint {
+  flex: 1;
+  min-width: 0;
+  font-size: 0.7rem;
+  line-height: 1.6;
+  color: var(--stone-dim);
+}
+.calc__prev,
+.calc__next { flex: none; padding: 0.8em 1.15em; font-size: 0.8rem; }
+.calc__prev[hidden] { display: none; }
+
+/* result card */
+.calc__result {
+  position: sticky;
+  top: 104px;
+  padding: clamp(22px, 2.6vw, 32px);
+  border: 1px solid rgba(198, 166, 121, 0.32);
+  background:
+    linear-gradient(160deg, rgba(198, 166, 121, 0.11), rgba(198, 166, 121, 0.02) 55%, transparent),
+    var(--ink-3);
+}
+.calc__result-kicker {
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+  color: var(--sand);
+}
+.calc__result-price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 14px;
+  line-height: 1;
+}
+.calc__result-price strong {
+  font-size: clamp(2.05rem, 2.9vw, 2.7rem);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  color: var(--text);
+}
+.calc__result-price span { font-size: 0.9rem; color: var(--stone); }
+.calc__result-offer {
+  margin-top: 9px;
+  font-size: 0.74rem;
+  line-height: 1.6;
+  color: var(--stone);
+}
+.calc__result-offer s { color: var(--stone-dim); }
+
+.calc__result-facts { margin-top: 20px; }
+.calc__result-facts div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 9px 0;
+  border-top: 1px solid var(--line-soft);
+  font-size: 0.79rem;
+  line-height: 1.6;
+}
+.calc__result-facts dt { flex: none; color: var(--stone-dim); }
+.calc__result-facts dd { text-align: right; color: var(--stone); }
+
+.calc__monthly {
+  margin-top: 10px;
+  padding: 9px 12px;
+  border: 1px solid var(--line-soft);
+  font-size: 0.74rem;
+  color: var(--stone);
+}
+.calc__quote {
+  margin-top: 10px;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--stone-dim);
+}
+
+.calc__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 22px;
+}
+.calc__actions .btn { width: 100%; }
+.calc__sms {
+  align-self: center;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(198, 166, 121, 0.4);
+  font-size: 0.76rem;
+  color: var(--stone);
+  transition: color 0.35s var(--ease);
+}
+.calc__sms:hover { color: var(--sand); }
+
+.calc__result-note {
+  margin-top: 16px;
+  font-size: 0.68rem;
+  line-height: 1.75;
+  color: var(--stone-dim);
+}
+
+/* ---------- responsive: conversion blocks ---------- */
+@media (max-width: 1180px) {
+  .estimate__grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); }
+  .calc__panel { min-height: 0; }
+}
+
+@media (max-width: 980px) {
+  .checks { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .promises__grid { grid-template-columns: 1fr; gap: 34px; }
+  .estimate__grid { grid-template-columns: 1fr; }
+  .calc__result { position: static; }
+  .calc__panel { min-height: 0; }
+}
+
+@media (max-width: 640px) {
+  .checks { grid-template-columns: 1fr; gap: 0; }
+  .check { padding: 18px 0 20px; border-top: 1px solid rgba(18, 16, 14, 0.1); }
+  .checks { border-top: 0; }
+  .checks .check:first-child { border-top: 1px solid rgba(18, 16, 14, 0.14); }
+
+  .promises__list { grid-template-columns: 1fr; }
+  .diagnosis__foot { flex-direction: column; align-items: flex-start; }
+  .diagnosis__cta { width: 100%; }
+  .diagnosis__cta .btn { flex: 1 1 auto; }
+
+  .capacity { font-size: 0.56rem; letter-spacing: 0.1em; padding: 8px 12px; }
+
+  .calc { padding: 20px 18px; }
+  .calc__steps { gap: 14px; }
+  .calc__step { font-size: 0.7rem; }
+  .calc__options--grid { grid-template-columns: 1fr; }
+  .calc__foot { flex-wrap: wrap; }
+  .calc__hint { order: 3; flex: 1 0 100%; }
+  .calc__prev, .calc__next { flex: 1 1 auto; }
+  .calc__result-price strong { font-size: 2.1rem; }
+}
+
+/* ==========================================================================
+   VISUAL UPGRADE — trust strip · 진단 아이콘 · 약속 문서 카드 · 계산기 마감
+   ========================================================================== */
+
+/* ---------- trust strip (marquee 아래) ---------- */
+.trust {
+  background: var(--ink-2);
+  border-bottom: 1px solid var(--line-soft);
+}
+.trust__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.trust__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  padding: 20px clamp(12px, 2vw, 26px);
+  border-left: 1px solid var(--line-soft);
+}
+.trust__item:first-child { padding-left: 0; border-left: 0; }
+.trust__ico {
+  flex: none;
+  width: 21px;
+  height: 21px;
+  color: var(--sand);
+  opacity: 0.9;
+}
+.trust__ico svg { width: 100%; height: 100%; }
+.trust__item p strong {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.trust__item p span {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.68rem;
+  line-height: 1.5;
+  color: var(--stone-dim);
+}
+
+/* ---------- capacity badge (pricing) ---------- */
+.capacity {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  padding: 11px 16px;
+  text-transform: none;
+}
+.capacity__label {
+  font-size: 0.58rem;
+  letter-spacing: 0.24em;
+  color: var(--sand);
+}
+.capacity__value {
+  padding-left: 14px;
+  border-left: 1px solid rgba(198, 166, 121, 0.32);
+  font-size: 0.86rem;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.capacity__desc {
+  padding-left: 14px;
+  border-left: 1px solid var(--line);
+  font-size: 0.72rem;
+  color: var(--stone-dim);
+}
+
+/* ---------- diagnosis icons ---------- */
+.check__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.check__ico {
+  width: 24px;
+  height: 24px;
+  color: #8a6231;
+}
+.check__ico svg { width: 100%; height: 100%; }
+.check__top .check__no { margin: 0; }
+
+/* ---------- promises: document card ---------- */
+.promises__doc {
+  position: relative;
+  padding: clamp(20px, 2.6vw, 32px);
+  border: 1px solid rgba(243, 238, 229, 0.15);
+  background:
+    linear-gradient(158deg, rgba(243, 238, 229, 0.045), transparent 52%),
+    var(--ink-3);
+}
+.promises__doc-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 26px 15px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.promises__doc-title {
+  font-size: 0.58rem;
+  letter-spacing: 0.26em;
+  color: var(--sand);
+  text-transform: uppercase;
+}
+.promises__doc-meta {
+  font-family: var(--serif);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  color: var(--stone-dim);
+}
+.promises__list { margin-top: 2px; }
+.promise {
+  position: relative;
+  padding-right: 22px;
+}
+.promise::after {
+  content: "✓";
+  position: absolute;
+  top: 21px;
+  right: 0;
+  font-size: 0.72rem;
+  line-height: 1;
+  color: rgba(198, 166, 121, 0.6);
+}
+.promises__doc-foot {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 0.72rem;
+  line-height: 1.7;
+  color: var(--stone-dim);
+}
+.promises__stamp {
+  position: absolute;
+  top: -24px;
+  right: clamp(14px, 2.6vw, 30px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border: 1px solid rgba(198, 166, 121, 0.42);
+  border-radius: 50%;
+  font-family: var(--serif);
+  font-size: 0.92rem;
+  letter-spacing: 0.16em;
+  color: rgba(198, 166, 121, 0.82);
+  transform: rotate(-8deg);
+  background: rgba(11, 10, 9, 0.72);
+  backdrop-filter: blur(2px);
+}
+.promises__stamp::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(198, 166, 121, 0.26);
+  border-radius: 50%;
+}
+.promises__stamp em {
+  margin-top: 2px;
+  font-size: 0.42rem;
+  font-style: normal;
+  letter-spacing: 0.2em;
+  color: rgba(198, 166, 121, 0.6);
+}
+
+/* ---------- calculator finish ---------- */
+.calc__progress {
+  height: 2px;
+  margin-top: 14px;
+  background: var(--line-soft);
+  overflow: hidden;
+}
+.calc__progress-bar {
+  display: block;
+  width: 33.333%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(198, 166, 121, 0.45), var(--sand));
+  transition: width 0.5s var(--ease);
+}
+
+.calc__result { position: sticky; overflow: hidden; }
+.calc__result::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sand), rgba(198, 166, 121, 0.12));
+}
+.calc__result-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.calc__result-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px;
+  border: 1px solid rgba(198, 166, 121, 0.4);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  color: var(--sand);
+}
+.calc__result-badge i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--sand);
+  animation: badgePulse 2.4s var(--ease) infinite;
+}
+@keyframes badgePulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+.calc__result-save {
+  margin-top: 8px;
+  font-size: 0.72rem;
+  color: var(--sand);
+}
+
+/* ---------- process arrows ---------- */
+@media (min-width: 981px) {
+  .step:not(:last-child)::after {
+    content: "→";
+    position: absolute;
+    top: 20px;
+    right: -17px;
+    font-size: 0.78rem;
+    color: rgba(198, 166, 121, 0.4);
+  }
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 980px) {
+  .trust__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .trust__item:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .trust__item:nth-child(n+3) { border-top: 1px solid var(--line-soft); }
+}
+@media (max-width: 640px) {
+  .trust__grid { grid-template-columns: 1fr; }
+  .trust__item { padding: 15px 0; border-left: 0; }
+  .trust__item + .trust__item { border-top: 1px solid var(--line-soft); }
+  .trust__item:nth-child(n+3) { border-top: 1px solid var(--line-soft); }
+
+  .capacity { display: flex; gap: 6px 10px; padding: 10px 12px; }
+  .capacity__desc { flex: 1 0 100%; padding-left: 0; border-left: 0; }
+
+  .promises__doc { padding: 18px 16px; }
+  .promises__doc-head { padding-right: 0; }
+  .promises__stamp { width: 60px; height: 60px; top: -18px; font-size: 0.8rem; }
+
+  .calc__result-head { align-items: flex-start; }
+}
+
+/* ---------- final polish ---------- */
+.capacity + .offer { margin-top: clamp(24px, 2.8vw, 34px); }
+.promises__doc-head { padding-right: 96px; }
+.calc__step.is-active { color: var(--paper); }
+.calc__step.is-done span { color: rgba(198, 166, 121, 0.62); }
+.calc__step.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -17px;
+  height: 1px;
+  background: var(--sand);
+}
+.calc__step { position: relative; }
+@media (max-width: 640px) {
+  .promises__doc-head { padding-right: 0; }
+  .calc__step.is-active::after { bottom: -15px; }
+}
+
+/* ---------- calculator: included items + mobile live total ---------- */
+.calc__includes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 8px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+}
+.calc__includes li {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 10px;
+  border: 1px solid var(--line-soft);
+  font-size: 0.7rem;
+  line-height: 1.4;
+  color: var(--stone);
+}
+.calc__includes li::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(198, 166, 121, 0.7);
+}
+
+.calc__live {
+  display: none;
+  align-items: baseline;
+  gap: 5px;
+  flex: 1 0 100%;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line-soft);
+  font-size: 0.78rem;
+  color: var(--stone);
+}
+.calc__live strong {
+  font-size: 1.18rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+.calc__live span { font-size: 0.68rem; color: var(--stone-dim); }
+
+@media (max-width: 980px) {
+  .calc__live { display: flex; }
+  .calc__panel { min-height: 0; }
+}
+
+@media (max-width: 640px) {
+  .promises__doc-head { padding-right: 66px; }
+  .promises__doc-meta { display: none; }
+  .calc__panel { min-height: 0; }
+}
+@media (min-width: 641px) {
+  .calc__panel { min-height: clamp(216px, 20vw, 248px); }
+}
+
+.calc__foot { flex-wrap: wrap; }
+
+/* buttons rendered as <button> must not keep the UA grey background */
+.btn--ghost { background: transparent; }
+
+/* checkbox: sand fill + ink check mark (radio keeps the dot) */
+.calc-opt input:checked + .calc-opt__box::before {
+  border-color: var(--sand);
+  background: var(--sand);
+  box-shadow: none;
+}
+.calc-opt:not(.calc-opt--check) input:checked + .calc-opt__box::before {
+  box-shadow: inset 0 0 0 3px var(--ink-3);
+}
+.calc-opt--check input:checked + .calc-opt__box::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 22.5px;
+  width: 6px;
+  height: 3px;
+  border-left: 1.4px solid var(--ink);
+  border-bottom: 1.4px solid var(--ink);
+  transform: rotate(-45deg);
+}
