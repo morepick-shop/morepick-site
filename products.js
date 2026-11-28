@@ -106,11 +106,11 @@ window.MOREPICK_DATA = {
     },
     {
       "id": "013",
-      "name": "스텐클리너 스테인리스 연마제 100g 1개",
+      "name": "바겐슈타이거 스테인리스 멀티 클리너 100g 1개",
       "category": "주방템",
-      "description": "탄 냄비·팬 바닥의 눌어붙은 자국과 물때를 스펀지에 덜어 문질러 닦는 스테인리스 연마제입니다. 튜브형 100g 구성이고, 스테인리스 전용이에요. 사용 전 눈에 띄지 않는 부분에 먼저 테스트하고, 코팅 팬에는 쓰지 마세요. 구매 전 판매자명 모어픽과 선택 옵션을 확인해 주세요.",
+      "description": "탄 냄비·팬 바닥의 눌어붙은 자국과 물때를 스펀지에 덜어 문질러 닦는 스테인리스 연마제입니다. 영상 속 상품과 같은 튜브형 100g 1개 구성이고, 스테인리스 전용이에요. 사용 전 눈에 띄지 않는 부분에 먼저 테스트하고, 코팅 팬에는 쓰지 마세요. 구성·배송비·재고는 쿠팡 상품 상세에서 확인해 주세요.",
       "image": "./img/013.jpg",
-      "url": "https://smartstore.naver.com/more-pick/products/13894236015",
+      "url": "https://link.coupang.com/a/i2knlFBSjQ",
       "sourceUrl": "https://www.instagram.com/p/DgPXL2OyFSc/"
     },
     {
